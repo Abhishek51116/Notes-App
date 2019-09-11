@@ -1,0 +1,45 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+/*Background image*/
+body{
+background: url("images/background.jpg") no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Chilanka',cursive;
+}
+.jumbotron{
+background-color: transparent;
+ text-align: center;
+    letter-spacing: 2.5px;
+    margin-top: 150px;
+    padding: 10px;
+    
+}
+/*Stying for button*/
+.button {
+    padding: 10px;
+    
+}
+
+.green {
+    background-color: rgba(114,190,35,0.8);
+}
+
+.green:hover {
+    background-color: rgb(114,190,35);
+}
+
+.footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+#footerContent {
+    font-style: italic;
+    font-size: 30px;
+}
