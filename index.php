@@ -33,7 +33,7 @@
       </li>
     </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#contact">Login</a></li>
+          <li> <a class="btn  btn-sm green button" href="#" role="button" data-target="#loginModal" data-toggle="modal">Login</a></li>
         </ul>
   </div>
 </nav>     
@@ -43,14 +43,89 @@
   <p class="lead">Easy to Use protect all your notes!</p>
   <hr class="my-4">
   
-  <a class="btn  btn-lg green button" href="#" role="button">Sign Up-It's Free</a>
+  <a class="btn  btn-lg green button" href="#" role="button" data-target="#signupModal" data-toggle="modal">Sign Up-It's Free</a>
 </div>
       
       <!-- Login Form -->
+      <form methord="POST" id="loginForm">
+          <div class="modal" tabindex="-1" role="dialog" id="loginModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!-- login message from php file -->
+          <div id="loginMessage"> </div>
+        
+          <div class="form-group">
+    <label for="loginEmail" class="sr-only" >Login Email</label>
+    <input type="email" class="form-control" id="loginEmail"  placeholder="Enter Email" name="loginEmail" maxlength="30">
+        </div>
+           <div class="form-group">
+    <label for="loginPassword" class="sr-only">Login Password</label>
+    <input type="password" class="form-control" id="loginLassword"  placeholder="Enter your password" name="loginPassword" maxlength="30">
+        </div>
+          
+          
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" value="login">Login</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
       
+      </form>
+
       
       <!-- sign up form -->
+      <form methord="POST" id="singupForm">
+          <div class="modal" tabindex="-1" role="dialog" id="signupModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign up today and start using the app!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!-- Sign up message from php file -->
+          <div id="signupMessage"> </div>
+        <div class="form-group">
+    <label for="username" class="sr-only">Username</label>
+    <input type="text" class="form-control" id="username"  placeholder="Username" maxlength="30">
+        </div>
+          <div class="form-group">
+    <label for="email" class="sr-only" >Email</label>
+    <input type="email" class="form-control" id="email"  placeholder="Enter Email" name="email" maxlength="30">
+        </div>
+           <div class="form-group">
+    <label for="password" class="sr-only">password</label>
+    <input type="password" class="form-control" id="password"  placeholder="Choose a password" name="password" maxlength="30">
+        </div>
+          <div class="form-group">
+    <label for="rePassword" class="sr-only">Re-password</label>
+    <input type="password" class="form-control" id="rePassword"  placeholder="Confirm password" name="rePassword" maxlength="30">
+        </div>
+          
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" value="Sign up">Sign up!</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
       
+      </form>
       <!-- Forgot password form-->
       
       <!-- Footer -->
