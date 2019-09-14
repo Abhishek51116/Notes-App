@@ -8,9 +8,28 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Notes APP</title>
+    <title>My Notes</title>
      <link href="styling.css" rel="stylesheet" type="text/css">
        <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+      <style>
+          .container{
+              margin-top: 100px;
+          }
+          #done, #allNotes, #notePad{
+              display: none;
+          }
+          #buttons{
+              margin-bottom: 20px;
+          }
+          textarea{
+              width: 100%;
+              max-width: 100%;
+              font-size:16px;
+              line-height: 1.5em;
+              border-left-width: 20px;
+              padding: 20px;
+          }
+      </style>
   </head>
   <body>
     <!-- Navigation BAR -->
@@ -22,8 +41,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Help</a>
@@ -31,20 +50,46 @@
         <li class="nav-item">
         <a class="nav-link" href="#">Contact Us</a>
       </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="#">My Notes <span class="sr-only">(current)</span></a>
+      </li>
     </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li> <a class="btn  btn-sm green button" href="#" role="button" data-target="#loginModal" data-toggle="modal">Login</a></li>
+             <li class="nav-item">
+        <a class="nav-link" href="#">Logged in as <b>username</b></a>
+      </li>
+          <li class="nav-item">
+             <a class="btn  btn-sm green button" href="#" role="button">Logout</a>
+            </li>
+           
         </ul>
   </div>
 </nav>     
-      <!-- Jumbotron with sign up Button -->
-      <div class="jumbotron" id="myContainer">
-  <h1 class="display-4">Online Notes App</h1>
-  <p class="lead">Easy to Use protect all your notes!</p>
-  <hr class="my-4">
-  
-  <a class="btn  btn-lg green button" href="#" role="button" data-target="#signupModal" data-toggle="modal">Sign Up-It's Free</a>
-</div>
+   <!--Container-->
+      
+      <div class="container">
+      <div class="row">
+          <div class="offset-md-3 col-md-6">
+              <div id="buttons">
+                  <button type="button" class="btn btn-primary btn-lg" id="addNote">Add Note</button>
+                  <button type="button" class="btn btn-primary btn-lg " id="edit" style="float:right;" >Edit</button>
+                  <button type="button" class="btn green btn-lg" id="done" style="float:right;">Done</button>
+                  <button type="button" class="btn btn-primary btn-lg" id="allNotes">All Notes</button>
+              </div>
+              <div id="notePad">
+              <textarea rows="10">
+                  
+                  </textarea>
+            </div>
+              <div class="notes">
+                  <!-- Notes made by the user-->
+                  
+              </div>
+              
+          </div>
+          </div>
+      </div>
+      
       
       <!-- Login Form -->
       <form methord="POST" id="loginForm">
