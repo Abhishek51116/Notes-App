@@ -69,13 +69,23 @@
     <label for="loginPassword" class="sr-only">Login Password</label>
     <input type="password" class="form-control" id="loginLassword"  placeholder="Enter your password" name="loginPassword" maxlength="30">
         </div>
+          <div class="checkbox">
+              <label>
+              <input type="checkbox" name="rememberMe" id="rememberMe">Remember Me
+              </label>
+              <a style="cursor:pointer;color:blue" class="float-right" data-dismiss="modal" data-target="#forgotPasswordModal" data-toggle="modal">Forgot Password?
+          </a>
+          </div>
           
-          
-        </div>
+      
+         
+         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" value="login">Login</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary mr-auto" data-target="#signupModal" data-toggle="modal" data-dismiss="modal">Register</button>
         
+        <button type="button" class="btn btn-primary" value="login" name="login">Login</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           
       </div>
     </div>
   </div>
@@ -117,7 +127,7 @@
           
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" value="Sign up">Sign up!</button>
+        <button type="button" class="btn btn-primary" value="signUp" name="signUp">Sign up!</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         
       </div>
@@ -127,7 +137,38 @@
       
       </form>
       <!-- Forgot password form-->
+       <form methord="POST" id="forgotPasswordForm">
+          <div class="modal" tabindex="-1" role="dialog" id="forgotPasswordModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter your email address:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!-- forgot password message from php file -->
+          <div id="forgotPasswordMessage"> </div>
+        
+          <div class="form-group">
+    <label for="forgotEmail" class="sr-only" >Forgot Email</label>
+    <input type="email" class="form-control" id="fogotPasswordEmail"  placeholder="Enter Email" name="forgotPasswordEmail" maxlength="30">
+        </div>
+
+         </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary mr-auto" data-target="#signupModal" data-toggle="modal" data-dismiss="modal">Register</button>
+        
+        <button type="button" class="btn btn-primary" value="Submit" name="forgotPasswordSubmit">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           
+      </div>
+    </div>
+  </div>
+</div>
       
+      </form>
       <!-- Footer -->
       <div class="footer">
       <div class="container">
