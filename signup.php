@@ -4,6 +4,11 @@ session_start();
 include("connection.php");
 $result = null;
 $error = null;
+$username =null;
+$email = null;
+$password = null;
+$activationKey = null;
+$message = null;
 $missingUsername ='<p><strong>Please enter a username!</strong></p>';
 $missingEmail ='<p><strong>Please enter your email address!</strong></p>';
 $invalidEmail ='<p><strong>Invalid Email!</strong></p>';
@@ -53,11 +58,12 @@ if($error){
 $username = mysqli_real_escape_string($link,$username);
 $email = mysqli_real_escape_string($link,$email);
 $password = mysqli_real_escape_string($link,$password);
+$password = md5($password);//128 bits 
 //Check if user is already in the database
-$sql = "SELECT * FROM 'users' WHERE usersname = '$username'";
+$sql = "SELECT * FROM users WHERE username = '$username'";
 $result = mysqli_query($link,$sql);
 if(!$result){
-    echo '<div class="alert alert-danger">Error running the query!</div>';
+    echo '<div class="alert alert-danger">'.mysqli_error($link).'</div>';
     exit;
 }
 $results=mysqli_num_rows($result);
@@ -67,7 +73,7 @@ if($results){
 }
 //Check if email is already taken
 
-$sql = "SELECT * FROM 'users' WHERE email = '$email'";
+$sql = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($link,$sql);
 if(!$result){
     echo '<div class="alert alert-danger">Error running the query!</div>';
@@ -78,5 +84,19 @@ if($results){
     echo "<div>Sorry that email has already been taken!</div>";
     exit;
 }
+//create activation code
+$activationKey = bin2hex(openssl_random_pseudo_bytes(16));
+$sql = "INSERT INTO users (`username`,`email`,`password`,`activation`) VALUES ('$username','$email','$password','$activationKey')";
+$result = mysqli_query($link,$sql);
+if(!$result){
+    echo "<div>" .mysqli_error($link). "</div>";
+    exit;
+}
+ //Send activation key to the user
+$message = "Please click on the link to activate your profile";
+$message = "localhost/9/activate.php?email=".urldecode($email)."&key=$activationKey";
+if(mail($email,'COnfirm your email id',$message,'From'.'abhishekaggarwal00@gmail.com')){
+echo "<div> Go to your mail.</div>"
+};
 
 ?>
