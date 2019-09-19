@@ -111,7 +111,7 @@
           </div>
         <div class="form-group">
     <label for="username" class="sr-only">Username</label>
-    <input type="text" class="form-control" id="username"  placeholder="Username" maxlength="30">
+    <input type="text" class="form-control" id="username" name="username"  placeholder="Username" maxlength="30">
         </div>
           <div class="form-group">
     <label for="email" class="sr-only" >Email</label>
