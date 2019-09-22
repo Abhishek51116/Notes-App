@@ -16,6 +16,9 @@ $missingPassword ='<p><strong>Please enter a password!</strong></p>';
 $invalidPassword ='<p><strong>Password should be atleast 6 characters and must include atleast one capital letter and one number! </strong></p>';
 $differentPassword ='<p><strong>Passwords do not match!</strong></p>';
 $missingPassword2 ='<p><strong>Enter password in second field also!</strong></p>';
+$headers =  'MIME-Version: 1.0' . "\r\n"; 
+$headers .= 'From: abhishekaggarwal173@gmail.com' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
 
 //Get User name
 if(empty($_POST["username"])){
@@ -94,9 +97,10 @@ if(!$result){
 }
  //Send activation key to the user
 $message = "Please click on the link to activate your profile";
-$message = "localhost/9/activate.php?email=".urldecode($email)."&key=$activationKey";
-if(mail($email,'COnfirm your email id',$message,'From'.'abhishekaggarwal00@gmail.com')){
-echo "<div> Go to your mail.</div>"
-};
+$message .= "localhost/9/activate.php?email=".urldecode($email)."&key=$activationKey";
+if(mail($email,'Confirm your email id',$message,$headers)){
+echo "<div> Go to your mail.</div>";
+}
+
 
 ?>
