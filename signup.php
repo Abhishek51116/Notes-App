@@ -55,13 +55,14 @@ if(empty($_POST["password"])){
 if($error){
     $resultMessage = "<div class='alert alert-danger'>" . $error . "</div>";
     echo $resultMessage;
+    exit;
 }
 // no errors
 //Preapare variables for the queries
 $username = mysqli_real_escape_string($link,$username);
 $email = mysqli_real_escape_string($link,$email);
 $password = mysqli_real_escape_string($link,$password);
-$password = md5($password);//128 bits 
+$password = hash('sha256',$password);//128 bits 
 //Check if user is already in the database
 $sql = "SELECT * FROM users WHERE username = '$username'";
 $result = mysqli_query($link,$sql);

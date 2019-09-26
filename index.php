@@ -71,7 +71,7 @@
         </div>
           <div class="checkbox">
               <label>
-              <input type="checkbox" name="rememberMe" id="rememberMe">Remember Me
+              <input type="checkbox" name="rememberMe" id="rememberMe" value="rememberMe">Remember Me
               </label>
               <a style="cursor:pointer;color:blue" class="float-right" data-dismiss="modal" data-target="#forgotPasswordModal" data-toggle="modal">Forgot Password?
           </a>
