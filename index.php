@@ -1,3 +1,13 @@
+<?php 
+setcookie("rememberme","",time() - 3600);
+session_start();
+include('connection.php');
+
+include('logout.php');
+//remember me 
+
+include('remember.php');
+?> 
 <!doctype html>
 <html lang="en">
   <head>

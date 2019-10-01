@@ -6,7 +6,8 @@ include("connection.php");
 $error= null;
 $password = null;
 $errors = null;
-$email = null;
+$email = null; 
+$f2authentificator2 = null;
 //Check user inputs
     //define variables
 $missingEmail ='<p><strong>Please enter your email address!</strong></p>';
@@ -53,7 +54,40 @@ else{
     if(empty($_POST['rememberMe'])){
         echo "success";
     }else{
+        // create two variables ie authentificator 1 and authentificator 2
+        $authentificator1 = bin2hex(openssl_random_pseudo_bytes(10));
+        //2^80 
+        $authentificator2 = openssl_random_pseudo_bytes(20);
+        //store them in a cookie
+        function f1($a,$b){
+            $c = $a . "," . bin2hex($b) ;
+            return $c;
+            }
+        $cookieValue = f1($authentificator1,$authentificator2);
+        setcookie(
+        "rememberme",$cookieValue,
+            time() + 1296000
+        );
+        //Run query t(o store them in remember me table
+        function f2($a) {
+            $b = hash('sha256',$a);
+            return $b;
+        }   
+        $f2authentificator2 = f2($f2authentificator2);
+        $user_id = $_SESSION['user_id'];
+        $expiration = date('Y-m-d H:i:s', time() + 1296000);
+        $sql = "INSERT INTO rememberme
+        (`authentificator1`,`f2authentificator2`,`user_id`,`expires`)
+        VALUES
+        ('$authentificator1','$f2authentificator2','$user_id','$expiration')";
+        $result = mysqli_query($link,$sql);
+       if(!$result){
+       echo "Error running the query, remember me";
+       }else{
+           echo "success";
+       }
         
+
     }
 }
 

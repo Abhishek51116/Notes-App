@@ -58,8 +58,8 @@
              <li class="nav-item">
         <a class="nav-link" href="#">Logged in as <b>username</b></a>
       </li>
-          <li class="nav-item">
-             <a class="btn  btn-sm green button" href="#" role="button">Logout</a>
+          <li class="nav-item"><form method="get">
+             <a href="index.php?logout=1" class="btn  btn-sm green button" role="button">Logout</a></form>
             </li>
            
         </ul>
