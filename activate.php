@@ -10,8 +10,8 @@ if(!isset($_GET['email']) || !isset($_GET['key'])){
 $email = $_GET['email'];
 $key = $_GET['key'];
 // Prepare them for sql queries
-mysqli_real_escape_string($link,$email);
-mysqli_real_escape_string($link,$key);
+$email = mysqli_real_escape_string($link,$email);
+$key = mysqli_real_escape_string($link,$key);
 //Run query for the matching email and key and set activated 
 $sql = "UPDATE users SET activation='activated' WHERE (email = '$email' AND activation ='$key') LIMIT 1";
 $result = mysqli_query($link,$sql);

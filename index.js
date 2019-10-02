@@ -43,3 +43,21 @@ $("#loginForm").submit(function(event){
     
     }); 
 });
+//once user clicks forgot password 
+$("#forgotPasswordForm").submit(function(event){
+    //Prevent the php processing
+    event.preventDefault();
+    //collect data from user
+    var datatopost = $("#forgotPasswordForm").serializeArray();
+    console.log(datatopost);
+    //Ajax call
+    $.ajax({
+        url : "forgot-password.php",
+        type : "POST",
+        data : datatopost,
+        success: function(data){
+          $('#forgotPasswordMessage').html(data);
+      }
+    
+    }); 
+});
